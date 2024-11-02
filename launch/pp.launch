@@ -1,4 +1,6 @@
 <launch>
+<!-- Load parameters from YAML file -->
+<rosparam file="$(find pid_and_pp)/config/pure_pursuit_params.yaml" command="load"/>
 <node name="viz_pp" pkg="pid_and_pp" type="pp_viz.py" output='screen' cwd="node" />
 <param name="Vmax" type="double" value="4.0"/>
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pid_and_pp)/rviz/pp.rviz"/>

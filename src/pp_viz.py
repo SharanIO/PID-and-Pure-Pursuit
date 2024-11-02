@@ -33,7 +33,7 @@ class Pure_Pursuit:
         self.x_path = x_path
         self.y_path = y_path
 
-        self.l_d = 0  # Lookahead distance
+        self.l_d = rospy.get_param("pure_pursuit/lookahead_distance", 1.0)  # Lookahead distance
         self.kdd = 1.2  # Gain factor for lookahead distance
         self.roll, self.pitch, self.yaw = 0, 0, 0  # Orientation variables
 

@@ -1,5 +1,7 @@
 <launch>
 <node name="viz" pkg="pid_and_pp" type="pid_viz.py" output='screen'/>
+<!-- Load parameters from YAML file -->
+<rosparam file="$(find pid_and_pp)/config/pid_params.yaml" command="load"/>
 <node name="pid" pkg="pid_and_pp" type="pid.py" output='screen'/>
 <param name="Vmax" type="double" value="2.0"/>
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pid_and_pp)/rviz/pid.rviz"/>
