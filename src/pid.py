@@ -108,8 +108,12 @@ class PID:
         if self.current_time != 0:  # Ensure valid time
             # PID gains
             Kp = rospy.get_param("pid/kp", 0.09) # Proportional gain
-            Kd = rospy.get_param("pid/kd", 8.0)  # Derivative gain
-            Ki = rospy.get_param("pid/ki", 0.0)   # Integral gain (not used here)
+            Kd = rospy.get_param("pid/kd", 6.0)  # Derivative gain
+            Ki = rospy.get_param("pid/ki", 0.1)   # Integral gain (not used here)
+
+            # Kp = 0.09  # Proportional gain
+            # Kd = 6.0  # Derivative gain
+            # Ki = 0.1  # Integral gain (not used here)
 
             # Calculate error components
             der_error = self.y_err - self.prev_err  # Derivative of error
